@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal" >
+
+    <Button
+        android:id="@+id/btnp1_488"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="36dp"
+        android:text="Player 1" />
+
+    <Button
+        android:id="@+id/btnp2_488"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnp1_488"
+        android:layout_below="@+id/btnp1_488"
+        android:layout_marginTop="38dp"
+        android:text="Player 2" />
+
+    <Button
+        android:id="@+id/btnp3_488"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnp2_488"
+        android:layout_centerVertical="true"
+        android:text="Player 3" />
+
+    <Button
+        android:id="@+id/btnc"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnp3_488"
+        android:layout_marginTop="38dp"
+        android:layout_toLeftOf="@+id/btnsh_488"
+        android:text="Close" />
+
+    <Button
+        android:id="@+id/btnsh_488"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnc"
+        android:layout_alignBottom="@+id/btnc"
+        android:layout_alignLeft="@+id/btnp3_488"
+        android:layout_marginLeft="48dp"
+        android:text="Show" />
+
+</RelativeLayout>
