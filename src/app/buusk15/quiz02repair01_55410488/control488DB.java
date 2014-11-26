@@ -44,7 +44,7 @@ public class control488DB extends SQLiteOpenHelper {
 				+ "(RouteItem INTEGER PRIMARY KEY , RouteStatus INTEGER(1),RouteScore INTEGER(1));");
 		db.execSQL("CREATE TABLE "
 				+ TABLE_PLAYSTATUS
-				+ "(Playerid INTEGER PRIMARY KEY AUTOINCREMENT,Play INTEGER(1), Player CHAR(7),Position INTEGER(2),Status INTEGER(1),Score INTEGER(2));");
+				+ "(Playerid INTEGER PRIMARY KEY AUTOINCREMENT,Play INTEGER(1),Dice INTEGER(1) ,Player CHAR(7),Position INTEGER(2),Status INTEGER(1),Score INTEGER(2));");
 		Log.d("CREATE TABLE", "Create Table Successfully");
 		db.execSQL("INSERT INTO member(Username,Password,Position) VALUES ('admin','0000','admin')");
 		db.execSQL("INSERT INTO member(Username,Password,Position) VALUES ('player1','0000','member')");
@@ -156,7 +156,7 @@ public class control488DB extends SQLiteOpenHelper {
 	}
 	
 	// Insert PlayStatus
-		public long InsertPlayStatus(int strPlay, String strPlayer, int Position, int Status,int Score) {
+		public long InsertPlayStatus(int strPlay,int strDice, String strPlayer, int Position, int Status,int Score) {
 
 			try {
 
@@ -165,6 +165,7 @@ public class control488DB extends SQLiteOpenHelper {
 
 				ContentValues values = new ContentValues();
 				values.put("Play", strPlay);
+				values.put("Dice", strDice);  // บรรทัดนี้เพิ่มเข้ามาด้วยยย
 				values.put("Player", strPlayer);
 				values.put("Position", Position);
 				values.put("Status", Status);
@@ -432,7 +433,7 @@ public class control488DB extends SQLiteOpenHelper {
 
 			db = this.getReadableDatabase();
 
-			String strSQL = "SELECT Play,Player,Position,Status,Score FROM " + TABLE_PLAYSTATUS;
+			String strSQL = "SELECT Play,Dice,Player,Position,Status,Score FROM " + TABLE_PLAYSTATUS;
 
 			Cursor cursor = db.rawQuery(strSQL, null);
 
@@ -445,10 +446,11 @@ public class control488DB extends SQLiteOpenHelper {
 						map = new HashMap<String, String>();
 
 						map.put("Play", cursor.getString(0));
-						map.put("Player", cursor.getString(1));
-						map.put("Position", cursor.getString(2));
-						map.put("Status", cursor.getString(3));
-						map.put("Score", cursor.getString(4));						
+						map.put("Dice", cursor.getString(1));
+						map.put("Player", cursor.getString(2));
+						map.put("Position", cursor.getString(3));
+						map.put("Status", cursor.getString(4));
+						map.put("Score", cursor.getString(5));						
 
 						MyArrayList.add(map);
 

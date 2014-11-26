@@ -21,7 +21,7 @@ public class ShowPlayStatus extends Activity{
 			control488DB control488db = new control488DB(this);
 			ArrayList<HashMap<String, String>> MyArrayList = control488db.SelectPlayStatus();
 			SimpleAdapter adapter;
-			adapter = new SimpleAdapter(ShowPlayStatus.this, MyArrayList, R.layout.itemplaystatus, new String[]{"Play","Player","Position","Status","Score"},new int[]{R.id.ColPlay_488,R.id.ColUseridp_488,R.id.ColPositionp_488,R.id.ColStatus_488,R.id.ColScorep_488});
+			adapter = new SimpleAdapter(ShowPlayStatus.this, MyArrayList, R.layout.itemplaystatus, new String[]{"Play","Dice","Player","Position","Status","Score"},new int[]{R.id.ColPlay_488,R.id.ColDice_488,R.id.ColUseridp_488,R.id.ColPositionp_488,R.id.ColStatus_488,R.id.ColScorep_488});
 			ListView.setAdapter(adapter);
 			
 		}
